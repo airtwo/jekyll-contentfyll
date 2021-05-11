@@ -1,5 +1,2 @@
-class JekyllContentfyll
-  def self.hi
-    puts "Hello world!"
-  end
-end
+require 'jekyll-contentfyll/version'
+require 'jekyll-contentfyll/importer'

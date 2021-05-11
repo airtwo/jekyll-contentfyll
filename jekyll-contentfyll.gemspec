@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.description = "A simple hello world gem"
   s.authors     = ["Chance Griffin"]
   s.email       = 'cbg@hey.com'
-  s.files       = ["lib/jekyll-contentfyll.rb"]
+  s.files       = Dir["lib/**/*", "CHANGELOG.md", "LICENSE.txt", "README.md"]
   s.homepage    = 'https://rubygems.org/gems/jekyll-contentfyll'
   s.license       = 'MIT'
 end
