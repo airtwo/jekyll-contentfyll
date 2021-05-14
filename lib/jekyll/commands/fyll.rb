@@ -3,11 +3,11 @@ require 'jekyll-contentfyll/importer'
 module Jekyll
   # Module for Jekyll Commands
   module Commands
-    # jekyll contentful Command
+    # jekyll fyll Command
     class Fyll < Command
       def self.init_with_program(prog)
-        prog.command(:contentful) do |c|
-          c.syntax 'contentful [OPTIONS]'
+        prog.command(:fyll) do |c|
+          c.syntax 'fyll [OPTIONS]'
           c.description 'Imports data from Contentful'
 
           options.each { |opt| c.option(*opt) }
@@ -35,11 +35,15 @@ module Jekyll
       end
 
       def self.process(_args = [], options = {}, config = {})
-        Jekyll.logger.info '...Fylling...'
+        starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+        Jekyll.logger.info '... Fylling Content ...'
 
-        # Jekyll::Contentful::Importer.new(config).run
+        Jekyll::Contentfyll::Importer.new(config).run
 
-        # Jekyll.logger.info 'Contentful import finished'
+        ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+        elapsed = ending - starting
+        Jekyll.logger.info '... Content Fylled ... '
+        Jekyll.logger.info elapsed
 
         # return unless options['rebuild']
 

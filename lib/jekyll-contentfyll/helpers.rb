@@ -1,5 +1,7 @@
 module Jekyll
   module Contentfyll
-    VERSION = '0.0.5'.freeze
+    def self.time(&block) 
+
+    end
   end
 end
